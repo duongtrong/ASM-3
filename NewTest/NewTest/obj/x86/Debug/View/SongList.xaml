@@ -1,0 +1,64 @@
+﻿<Page x:ConnectionId='1'
+    x:Class="NewTest.View.SongList"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:NewTest.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:entity="using:NewTest.Entity"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/3338562_volume_up-wallpaper-1920x1080.jpg"/>
+        </Grid.Background>
+        <Pivot>
+            <Pivot.HeaderTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" Foreground="White"/>
+                </DataTemplate>
+            </Pivot.HeaderTemplate>
+            <PivotItem Header="List My Song">
+                    <Grid>
+                    <ListView x:ConnectionId='4'                                              x:Name="MenuList">
+                        <ListView.ItemTemplate>
+                            <DataTemplate                         >
+                                <StackPanel x:ConnectionId='5' Padding="12" Orientation="Horizontal" Tag="{Binding}"                                                                     >
+                                    <Ellipse Height="88" Width="88">
+                                        <Ellipse.Fill>
+                                            <ImageBrush x:ConnectionId='8'                                 />
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                    <StackPanel Margin="24,12,0,0">
+                                        <TextBlock x:ConnectionId='6'                      VerticalAlignment="Center" 
+                                               Style="{ThemeResource BaseTextBlockStyle}" 
+                                               Foreground="{ThemeResource SystemControlPageTextBaseHighBrush}"
+                                                Margin="0,0,0,0"/>
+                                        <TextBlock x:ConnectionId='7'                        VerticalAlignment="Center"                                                
+                                               Foreground="{ThemeResource SystemControlPageTextBaseHighBrush}" 
+                                               Margin="0,7,0,0"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </PivotItem>
+        </Pivot>
+        <RelativePanel VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="100">
+            <MediaElement x:ConnectionId='2' x:Name="MediaPlayer" AreTransportControlsEnabled="True">
+                <MediaElement.TransportControls>
+                    <MediaTransportControls
+                                            IsPlaybackRateEnabled="True"
+                                            IsNextTrackButtonVisible="True"
+                                            IsCompactOverlayButtonVisible="True"
+                                            IsCompactOverlayEnabled="True"
+                                            IsPreviousTrackButtonVisible="True"
+                                            IsPlaybackRateButtonVisible="True"/>
+                </MediaElement.TransportControls>
+            </MediaElement>
+        </RelativePanel>
+    </Grid>
+</Page>
+
