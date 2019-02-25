@@ -1,0 +1,19 @@
+﻿@model Exam1.Models.Student
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<form action="/Student/Index" method="post">
+    <div class="form-group">
+        <label>Roll Number</label>
+        <input type="text" class="form-control" name="RollNumber">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Name</label>
+        <input type="text" class="form-control" id="exampleInputPassword1" name="Name">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
